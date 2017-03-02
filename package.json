@@ -22,6 +22,7 @@
   "dependencies": {
     "changes-stream": "^2.2.0",
     "extend-shallow": "^2.0.1",
+    "plugin-error": "^0.1.2",
     "superagent": "^3.5.0",
     "through2": "^2.0.3",
     "vinyl": "^2.0.1"

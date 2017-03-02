@@ -5,6 +5,7 @@ var through = require('through2');
 var extend = require('extend-shallow');
 var superagent = require('superagent');
 var Changes = require('changes-stream');
+var PluginError = require('plugin-error');
 
 module.exports = function(options) {
   var defaults = {include_docs: true};
@@ -31,7 +32,7 @@ module.exports = function(options) {
     }
 
     getSeq(opts.db, function(err, seq) {
-      if (err) return next(err);
+      if (err) return next(toError(err));
       updateSeq = cache[opts.db] = seq;
       handleChange();
     });
@@ -53,13 +54,17 @@ module.exports = function(options) {
           return;
         }
       } catch (err) {
-        next(err);
+        next(toError(err));
         return;
       }
       next();
     }
   }));
 };
+
+function toError(err) {
+  return new PluginError('vinyl-changes-stream', err);
+}
 
 function toVinyl(change) {
   var file = new File({
