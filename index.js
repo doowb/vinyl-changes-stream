@@ -64,6 +64,7 @@ function toVinyl(change) {
   var file = new File({
     id: change.id,
     seq: change.seq,
+    json: change,
     contents: new Buffer(JSON.stringify(change, null, 2)),
   });
   return file;
