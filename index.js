@@ -2,6 +2,7 @@
 
 var File = require('vinyl');
 var through = require('through2');
+var extend = require('extend-shallow');
 var superagent = require('superagent');
 var Changes = require('changes-stream');
 
@@ -11,7 +12,7 @@ module.exports = function(options) {
     options = {db: options};
   }
 
-  var opts = Object.assign(defaults, options);
+  var opts = extend(defaults, options);
   if (!opts.db) {
     throw new Error('expected "options.db" to be set');
   }
