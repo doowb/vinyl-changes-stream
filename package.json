@@ -24,5 +24,11 @@
     "changes",
     "stream",
     "vinyl"
-  ]
+  ],
+  "dependencies": {
+    "changes-stream": "^2.2.0",
+    "superagent": "^3.5.0",
+    "through2": "^2.0.3",
+    "vinyl": "^2.0.1"
+  }
 }
