@@ -1,0 +1,28 @@
+{
+  "name": "vinyl-changes-stream",
+  "description": "Create a changes stream from couchdb and turn docs into Vinyl objects.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/doowb/vinyl-changes-stream",
+  "author": "Brian Woodward (https://github.com/doowb)",
+  "repository": "doowb/vinyl-changes-stream",
+  "bugs": {
+    "url": "https://github.com/doowb/vinyl-changes-stream/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "LICENSE"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "changes",
+    "stream",
+    "vinyl"
+  ]
+}
