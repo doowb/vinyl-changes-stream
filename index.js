@@ -34,7 +34,7 @@ var PluginError = require('plugin-error');
  * @api public
  */
 
-module.exports = function(options) {
+module.exports = function changes(options) {
   var defaults = {include_docs: true};
   if (typeof options === 'string') {
     options = {db: options};
@@ -49,10 +49,10 @@ module.exports = function(options) {
   var updateSeq;
   var count = 0;
   var limit = typeof opts.limit === 'undefined' ? -1 : opts.limit;
-  var changes = new Changes(opts);
+  var stream = new Changes(opts);
 
-  return changes.pipe(through.obj(function(change, enc, next) {
-    var stream = this;
+  return stream.pipe(through.obj(function(change, enc, next) {
+    var self = this;
     if (updateSeq && cache[opts.db]) {
       handleChange();
       return;
@@ -68,16 +68,16 @@ module.exports = function(options) {
       try {
         count++;
         if (change.doc) {
-          stream.push(toVinyl(change));
+          self.push(toVinyl(change));
         }
 
         if (change.seq >= updateSeq) {
           updateSeq = change.seq;
-          stream.emit('current', updateSeq);
+          self.emit('current', updateSeq);
         }
 
         if (limit !== -1 && count >= limit) {
-          changes.destroy();
+          stream.destroy();
           return;
         }
       } catch (err) {

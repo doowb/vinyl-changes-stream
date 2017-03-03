@@ -48,6 +48,13 @@
     ],
     "lint": {
       "reflinks": true
-    }
+    },
+    "related": {
+      "list": []
+    },
+    "reflinks": [
+      "changes-stream",
+      "vinyl"
+    ]
   }
 }
