@@ -32,7 +32,7 @@ describe('vinyl-changes-stream', function() {
         assert.equal(typeof file.json, 'object');
         this.emit('end');
       })
-      .on('end', cb);
+      .once('end', cb);
   });
 
   it('should take options', function(cb) {
@@ -45,7 +45,7 @@ describe('vinyl-changes-stream', function() {
         assert.equal(typeof file.json, 'object');
         this.emit('end');
       })
-      .on('end', cb);
+      .once('end', cb);
   });
 
   it('should start from the specified seq', function(cb) {
@@ -59,7 +59,7 @@ describe('vinyl-changes-stream', function() {
         assert(file.seq > 123456, 'expected file.seq to be greater than 123456');
         this.emit('end');
       })
-      .on('end', cb);
+      .once('end', cb);
   });
 
   it('should limit the amount of files returned', function(cb) {

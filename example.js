@@ -27,4 +27,4 @@ changes(options)
   .on('data', function() {})
   .on('end', function() {
     console.log('done');
-  })
+  });

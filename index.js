@@ -87,7 +87,14 @@ module.exports = function changes(options) {
       }
       next();
     }
-  }));
+  }))
+  .on('end', function() {
+    // ensures that the changes stream
+    // is destroyed
+    if (stream.source) {
+      stream.destroy();
+    }
+  });
 };
 
 function toError(err) {
@@ -99,7 +106,7 @@ function toVinyl(change) {
     id: change.id,
     seq: change.seq,
     json: change,
-    contents: new Buffer(JSON.stringify(change, null, 2)),
+    contents: new Buffer(JSON.stringify(change, null, 2))
   });
   return file;
 }
