@@ -14,7 +14,7 @@
   ],
   "main": "index.js",
   "engines": {
-    "node": ">=4"
+    "node": ">=0.10.0"
   },
   "scripts": {
     "test": "mocha"
@@ -27,6 +27,14 @@
     "through2": "^2.0.3",
     "vinyl": "^2.0.1"
   },
+  "devDependencies": {
+    "gulp-format-md": "^0.1.11",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-istanbul": "^1.1.1",
+    "gulp-mocha": "^3.0.1",
+    "mocha": "^3.2.0"
+  },
   "keywords": [
     "changes",
     "couchdb",
@@ -34,15 +42,6 @@
     "stream",
     "vinyl"
   ],
-  "devDependencies": {
-    "gulp-format-md": "^0.1.11",
-    "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-eslint": "^3.0.1",
-    "gulp-format-md": "^0.1.11",
-    "gulp-istanbul": "^1.1.1",
-    "gulp-mocha": "^3.0.1",
-    "mocha": "^3.2.0"
-  },
   "verb": {
     "toc": false,
     "layout": "default",
