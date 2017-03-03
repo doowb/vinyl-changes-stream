@@ -35,7 +35,8 @@
     "vinyl"
   ],
   "devDependencies": {
-    "gulp-format-md": "^0.1.11"
+    "gulp-format-md": "^0.1.11",
+    "mocha": "^3.2.0"
   },
   "verb": {
     "toc": false,

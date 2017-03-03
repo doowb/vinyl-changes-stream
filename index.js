@@ -42,7 +42,7 @@ module.exports = function changes(options) {
 
   var opts = extend(defaults, options);
   if (!opts.db) {
-    throw new Error('expected "options.db" to be set');
+    throw toError('expected "options.db" to be set');
   }
 
   var cache = {};
@@ -78,6 +78,7 @@ module.exports = function changes(options) {
 
         if (limit !== -1 && count >= limit) {
           stream.destroy();
+          self.emit('end');
           return;
         }
       } catch (err) {
