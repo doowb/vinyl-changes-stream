@@ -1,4 +1,4 @@
-# vinyl-changes-stream [![NPM version](https://img.shields.io/npm/v/vinyl-changes-stream.svg?style=flat)](https://www.npmjs.com/package/vinyl-changes-stream) [![NPM monthly downloads](https://img.shields.io/npm/dm/vinyl-changes-stream.svg?style=flat)](https://npmjs.org/package/vinyl-changes-stream)  [![NPM total downloads](https://img.shields.io/npm/dt/vinyl-changes-stream.svg?style=flat)](https://npmjs.org/package/vinyl-changes-stream)
+# vinyl-changes-stream [![NPM version](https://img.shields.io/npm/v/vinyl-changes-stream.svg?style=flat)](https://www.npmjs.com/package/vinyl-changes-stream) [![NPM monthly downloads](https://img.shields.io/npm/dm/vinyl-changes-stream.svg?style=flat)](https://npmjs.org/package/vinyl-changes-stream)  [![NPM total downloads](https://img.shields.io/npm/dt/vinyl-changes-stream.svg?style=flat)](https://npmjs.org/package/vinyl-changes-stream) [![Linux Build Status](https://img.shields.io/travis/doowb/vinyl-changes-stream.svg?style=flat&label=Travis)](https://travis-ci.org/doowb/vinyl-changes-stream)
 
 > Create a changes stream from couchdb and turn docs into Vinyl objects.
 
