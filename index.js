@@ -7,6 +7,33 @@ var superagent = require('superagent');
 var Changes = require('changes-stream');
 var PluginError = require('plugin-error');
 
+/**
+ * Create a stream of [vinyl][] files from a couchdb changes stream provided by [changes-stream][].
+ * Files contain a stringified `change` object on `file.contents` and the raw JSON object on `file.json`.
+ * `file.id` and `file.seq` are also populated with the `.id` and `.seq` from the `change` object.
+ *
+ * ```js
+ * changes('https://skimdb.npmjs.com/registry')
+ *  .on('current', function(seq) {
+ *    console.log('caught up to the current update', seq);
+ *  })
+ *  .pipe(through.obj(function(file, enc, next) {
+ *    console.log(file.seq, file.id);
+ *    //=> 123456 'some-package-name'
+ *    next(null, file);
+ *  }));
+ * ```
+ *
+ * @name changes
+ * @param  {Object|String} `options` Options object for passing additional options to [changes-stream][]. If passed a string, that will be used for the `db`.
+ * @param  {String} `options.db` The couchdb database to get changes from.
+ * @param  {Number} `options.since` Optionally specify the seq id to start from. This seq id will not be included in the stream.
+ * @param  {Number} `options.limit` Optionally specify a limit to how many changes are returned. Once the limit has been met, the stream will end.
+ * @emits  {Number} `current` When the stream has caught up to the current seq, the seq will be emitted.
+ * @return {Stream} Returns a stream to be used in a pipeline
+ * @api public
+ */
+
 module.exports = function(options) {
   var defaults = {include_docs: true};
   if (typeof options === 'string') {
